@@ -62,7 +62,7 @@ async function getUser(username) {
 
     return await dynamodb.get(params).promise().then((response) => {
         return response.Item;
-    }, (error) => {
+    }, error => {
         console.error('There is an error getting user: ', error)
     })
 }
@@ -76,7 +76,7 @@ async function saveUser(user) {
 
     return await dynamodb.put(params).promise().then(() => {
         return true;
-    }, (error) => {
+    }, error => {
         console.error('There is an error saving user: ', error);
     })
 }
