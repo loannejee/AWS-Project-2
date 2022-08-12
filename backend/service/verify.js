@@ -10,13 +10,16 @@ function verify(requestBody) {
         })
     }
 
+    // making it to this step means user, username and token exist 
     const user = requestBody.user;
     const token = requestBody.token;
     const verification = auth.verifyToken(user.username, token);
+
     if (!verification.verified) {
         return util.buildResponse(401, verification);
     }
 
+    //  verified successfully:
     return util.buildResponse(200, {
         verified: true,
         message: 'success',

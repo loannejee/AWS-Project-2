@@ -5,7 +5,7 @@ function generateToken(userInfo) {
     if (!userInfo) {
         return null;
     }
-
+    // if userInfo exists, pass in the secret key for the token
     return jwt.sign(userInfo, process.env.JWT_SECRET, {
         expiresIn: '1h'
     })
@@ -13,6 +13,7 @@ function generateToken(userInfo) {
 
 // verifyToken ============================================================
 function verifyToken(username, token) {
+    // check user's token matches with the one from database
     return jwt.verify(token, process.env.JWT_SECRET, (error, response) => {
         if (error) {
             return {
