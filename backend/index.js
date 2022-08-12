@@ -1,6 +1,6 @@
-const registerService = './service/register';
-const loginService = './service/login';
-const verifyService = './service/verify';
+const registerService = require('./service/register');
+const loginService = require('./service/login');
+const verifyService = require('./service/verify');
 
 const util = require('./utils/util.js')
 
