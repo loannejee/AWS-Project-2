@@ -22,8 +22,9 @@ async function login(user) {
 
     // then check if this user exist in the database
     const dynamoUser = await getUser(username.toLowerCase().trim());
-    if (dynamoUser && dynamoUser.username) {
-        return util.buildResponse(401, {
+    // for login, check that user and username indeed exist in db for successful login
+    if (!dynamoUser && !dynamoUser.username) {
+        return util.buildResponse(403, {
             message: 'username does not exist'
         })
     }
@@ -36,6 +37,7 @@ async function login(user) {
     }
 
     // if user exists, grab the user info from database 
+    // we're going to return this user object along with access token
     const userInfo = {
         username: dynamoUser.username,
         name: dynamoUser.name
