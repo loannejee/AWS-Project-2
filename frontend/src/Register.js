@@ -17,7 +17,7 @@ function Register() {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState(null);
 
     const submitHandler = (event) => {
         // prevents event/submission from happening for testing
