@@ -4,10 +4,13 @@ import axios from 'axios';
 // react-dotenv => load environment variables dynamically for your React applications created with CRA (Create-React-App).
 import env from "react-dotenv";
 
+
+// Interaction with the backend/server side created with AWS
 // API Gateway > Stages
 const REGISTER_URL = `${env.REGISTER_URL}`;
 // API Gateway > API Keys
 const X_API_KEY = `${env.X_API_KEY}`;
+
 
 function Register() {
     const [name, setName] = useState('');
