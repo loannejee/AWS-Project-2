@@ -26,7 +26,7 @@ function Register() {
         // Make sure all the fields are not empty
         if (name.trim() === '' || email.trim() === '' || username.trim() === '' || password.trim() === '') {
             setMessage('All fields are required*')
-            return
+            return;
         }
 
         // This will hold the API KEY
