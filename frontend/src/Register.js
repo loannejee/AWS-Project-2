@@ -29,6 +29,9 @@ function Register() {
             return;
         }
 
+        // If the message above was set, reset the message to null
+        setMessage(null)
+
         // This will hold the API KEY
         const requestConfig = {
             headers: {
