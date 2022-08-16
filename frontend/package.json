@@ -41,7 +41,8 @@
   },
   "react-dotenv": {
     "whitelist": [
-      "REGISTER_URL", 
+      "REGISTER_URL",
+      "LOGIN_URL", 
       "X_API_KEY"
     ]
   }
