@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 import axios from 'axios';
 // react-dotenv => load environment variables dynamically for your React applications created with CRA (Create-React-App).
 import env from "react-dotenv";
+import { setUserSession } from './service/AuthService';
+import { useNavigate } from 'react-router-dom';
 
 
 // Interaction with the backend/server side created with AWS
@@ -11,10 +13,12 @@ const LOGIN_URL = `${env.LOGIN_URL}`;
 // API Gateway > API Keys
 const X_API_KEY = `${env.X_API_KEY}`;
 
-function Login() {
+function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState(null);
+    // *** For react-router-dom v6, useHistory is now useNavigate
+    const navigate = useNavigate()
 
     const submitHandler = (event) => {
         // prevents event/submission from happening for testing
@@ -45,8 +49,9 @@ function Login() {
         // Make the client axios request to post/create new account
         // axios.post(target_url, data, custom_config)
         axios.post(LOGIN_URL, requestBody, requestConfig).then((response) => {
-            // If successful:
-            setErrorMessage("Login Successful");
+            // If successful, get the user information to the session from the response body and direct them to the premium content page
+            setUserSession(response.data.user, response.data.token);
+            navigate('/premium-content')
         }).catch((error) => {
             // Send appropriate error:
             // 401 user/unauthorized error
