@@ -25,7 +25,7 @@ function App() {
         </div>
 
         <div className='content'>
-          {/* A <Switch>/<Routes> tag looks through its children <Route>s and renders the first one that matches the current URL. */}
+          {/* For react-router-dom v6, <Switch>/<Routes> tag looks through its children <Route>s and renders the first one that matches the current URL. */}
           <Routes>
             {/* Components and their URLs here: */}
             <Route exact path="/" element={<Home />} />
