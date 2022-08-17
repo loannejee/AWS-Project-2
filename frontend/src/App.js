@@ -1,6 +1,6 @@
 import {
   BrowserRouter,
-  NavLink,
+  Link,
   // In react-router-dom v6, "Switch" is replaced by routes "Routes"
   // Switch 
   Routes,
@@ -18,10 +18,10 @@ function App() {
         {/* BrowserRouter keeps your UI in sync with the URL */}
         <div className="header">
           {/* Setting up the links */}
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/premium-content">Premium Content</NavLink>
+          <Link to="/">Home</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/premium-content">Premium Content</Link>
         </div>
 
         <div className='content'>
