@@ -10,6 +10,8 @@ import Home from "./Home";
 import Register from './Register';
 import Login from './Login';
 import PremiumContent from './PremiumContent';
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
   return (
@@ -29,9 +31,9 @@ function App() {
           <Routes>
             {/* Components and their URLs here: */}
             <Route exact path="/" element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/premium-content" element={<PremiumContent />} />
+            <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+            <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+            <Route path="/premium-content" element={<PrivateRoute><PremiumContent /></PrivateRoute>} />
           </Routes>
         </div>
       </BrowserRouter>
