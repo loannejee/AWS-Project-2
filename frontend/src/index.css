@@ -24,6 +24,11 @@ code {
   text-decoration: none;
 }
 
+.header a:hover {
+  background-color: pink;
+  transition: 0.4s;
+}
+
 .content {
   margin-left: 2em;
   font-size: 1.5em;
